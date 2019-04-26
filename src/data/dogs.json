@@ -1,0 +1,18 @@
+{
+    "dogs": [
+      {
+        "name": "Jerry",
+        "image": {
+          "name": "Jerry Dog",
+          "src": "../images/dogs/dog1.jpg"
+        }
+      },
+      {
+        "name": "Tom",
+        "image": {
+          "name": "Tom Dog",
+          "src": "../images/dogs/dog2.jpg"
+        }
+      }
+    ]
+}
