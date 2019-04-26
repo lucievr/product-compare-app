@@ -25,13 +25,7 @@ const globalStyles = css`
   margin: 0;
   word-wrap: break-word;
   text-align: center;
-  background-color: rgb(40, 49, 73);
-}
-  *:before {
-  box-sizing: inherit;
-}
-  *:after {
-  box-sizing: inherit;
+  background-color: rgb(40, 49, 73)!important;
 }
 `
 
