@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 // import { StaticQuery, graphql } from "gatsby"
 // import Img from "gatsby-image"
 import { css, Global } from "@emotion/core"
+import "../components/bootstrap.min.css"
+import Button from 'react-bootstrap/Button'
 import Video from "../../public/static/video.mp4"
 
 const globalStyles = css`
@@ -37,15 +39,19 @@ const IndexPage = () => (
     <Fragment>
         <Global styles={globalStyles} />
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>Hi people</h1>
-        <section style={{ width: `80%`, margin: `0 auto`, backgroundColor: `rgb(64, 75, 105)`, borderRadius: `10px`}}>
-        <div style={{ margin: `0`, padding: `20px`}}>
-        <iframe width="560" height="315" src={Video} title="videofootage" ></iframe>
         
-        {/* ?autoplay=1?frameborder=0?disablekb=1?fs=0?modestbranding=1?playsinline=1?version=3&loop=1&playlist=7GduxsfkXX8?loop=1 */}
+        <section style={{ width: `80%`, margin: `30px auto`, backgroundColor: `rgb(64, 75, 105)`, borderRadius: `10px`, padding: `30px`}}>
+        <h1 style={{color: `rgb(0, 129, 138)`}}>SHOOLiX</h1>
+        <h2 style={{color:  `rgb(219, 237, 243)`}}>Find the perfect pair!</h2>
+        <Link to="/page-2/"><Button variant="secondary" size="lg">
+      View products
+    </Button></Link>
+        <div style={{ margin: `0 auto`, borderRadius: `10px`}}>
+        <video id="background-video" width="560" height="315" src={Video} preload="auto" autoPlay muted loop 
+        style={{maxWidth: `100%`, borderRadius: `10px`, border: `4px solid rgb(0, 129, 138)`, backgroundColor: `rgb(0, 129, 138)`, padding: `2% 0`}}>
+        </video>
         </div>
         </section>
-        <Link to="/page-2/">Go to page 2</Link>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
