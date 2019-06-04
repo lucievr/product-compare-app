@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import { css, Global } from "@emotion/core"
 import "../components/bootstrap.min.css"
 import Button from 'react-bootstrap/Button'
-// import Video from "../../public/static/video.mp4"
+import Video from "../../public/static/video.mp4"
 
 const globalStyles = css`
   * {
@@ -60,10 +60,10 @@ const IndexPage = () => (
       View products
     </Button></Link>
         <div style={{ margin: `0 auto`, borderRadius: `10px`}}>
-        {/* <video id="background-video" width="560" height="315" src={Video} preload="auto" autoPlay muted loop 
+        <video id="background-video" width="560" height="315" src={Video} preload="auto" autoPlay muted loop 
         style={{maxWidth: `100%`, borderRadius: `10px`, border: `4px solid rgb(0, 129, 138)`, backgroundColor: `rgb(0, 129, 138)`, 
         padding: `2% 0`, boxShadow: `0 10px 25px 0 rgba(0, 0, 0, 0.3), 0 10px 25px 0 rgba(0, 0, 0, 0.3)`}}>
-        </video> */}
+        </video>
         </div>
         </section>
         <footer style={{color: `rgb(0, 129, 138)`}}>
