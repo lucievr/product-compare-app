@@ -1,7 +1,7 @@
 
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
-// import
+
 import SEO from "../components/seo"
 // import { StaticQuery, graphql } from "gatsby"
 // import Img from "gatsby-image"
@@ -56,7 +56,7 @@ const IndexPage = () => (
         <section style={{ width: `70%`, margin: `30px auto`, backgroundColor: `rgb(64, 75, 105)`, borderRadius: `10px`, padding: `30px`}}>
         <h1 css={titleStyle}>SHOOLiX</h1>
         <h4 style={{color:  `rgb(219, 237, 243)`}}>Find your perfect pair!</h4>
-        <Link to="/page-2/"><Button variant="secondary" size="lg" css={buttonStyle}>
+        <Link to="/products/"><Button variant="secondary" size="lg" css={buttonStyle}>
       View products
     </Button></Link>
         <div style={{ margin: `0 auto`, borderRadius: `10px`}}>

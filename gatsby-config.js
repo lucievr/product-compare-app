@@ -32,6 +32,36 @@ module.exports = {
         typeName: `Json`, // a fixed string
       },
     },
+    {
+      resolve: 'gatsby-source-firestore',
+      options: {
+        credential: require("./firebase-key.json"),
+        databaseURL: "https://shoolix.firebaseio.com",
+        types: [
+          {
+            type: 'Women',
+            collection: 'ladies',
+            map: doc => ({
+              name: doc.name,
+              brand: doc.brand,
+              type: doc.type,
+              price: doc.price,
+              src: doc.src,
+            }),
+          },
+          // {
+          //   type: 'Men',
+          //   collection: 'gents',
+          //   map: doc => ({
+          //     name: doc.name,
+          //     brand: doc.brand,
+          //     type: doc.type,
+          //     price: doc.price,
+          //   }),
+          // },
+        ],
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
