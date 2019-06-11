@@ -56,8 +56,12 @@ const IndexPage = () => (
         <section style={{ width: `70%`, margin: `30px auto`, backgroundColor: `rgb(64, 75, 105)`, borderRadius: `10px`, padding: `30px`}}>
         <h1 css={titleStyle}>SHOOLiX</h1>
         <h4 style={{color:  `rgb(219, 237, 243)`}}>Find your perfect pair!</h4>
-        <Link to="/products/"><Button variant="secondary" size="lg" css={buttonStyle}>
-      View products
+        <Link to="/ladies/"><Button variant="secondary" size="lg" css={buttonStyle}>
+      Shop ladies
+    </Button></Link>
+
+    <Link to="/gents/"><Button variant="secondary" size="lg" css={buttonStyle}>
+      Shop gents
     </Button></Link>
         <div style={{ margin: `0 auto`, borderRadius: `10px`}}>
         <video id="background-video" width="560" height="315" src={Video} preload="auto" autoPlay muted loop 

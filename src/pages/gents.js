@@ -4,11 +4,11 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
-const ProductPage = () => (
+const GentsPage = () => (
   <StaticQuery
     query={graphql`
-      query ShoolixQuery {
-        allWomen {
+      query ShoolixMenQuery {
+        allMen {
           edges {
             node {
               id
@@ -16,6 +16,8 @@ const ProductPage = () => (
               brand
               type
               price
+              buyURL
+              color
               localImage {
                 id
                 childImageSharp {
@@ -30,10 +32,10 @@ const ProductPage = () => (
         }
       }
     `}
-    render={({ allWomen }) => (
+    render={({ allMen }) => (
       <>
-        <SEO title="Shoes" />
-        {allWomen.edges.map(({ node }) => (
+        <SEO title="Men Shoes" />
+        {allMen.edges.map(({ node }) => (
           <ul key={node.id}>
             <li>
               <strong>Product:</strong> {node.name}
@@ -42,10 +44,16 @@ const ProductPage = () => (
               <strong>Brand:</strong> {node.brand}
             </li>
             <li>
+              <strong>Color:</strong> {node.color}
+            </li>
+            <li>
               <strong>Type:</strong> {node.type}
             </li>
             <li>
-              <strong>Price:</strong> {node.price}
+              <strong>Price:</strong> € {node.price}
+            </li>
+            <li>
+              <a href={node.buyURL}>Buy here</a>
             </li>
             <div style={{ width: `calc(220px + 10vw)`, margin: `0 auto` }}>
               <Img fluid={node.localImage.childImageSharp.fluid} />
@@ -58,4 +66,4 @@ const ProductPage = () => (
   />
 )
 
-export default ProductPage
+export default GentsPage
