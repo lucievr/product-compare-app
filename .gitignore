@@ -7,7 +7,7 @@ yarn-error.log*
 
 #API keys
 
-firebase-key.json
+*.firebase-key.json
 
 # Runtime data
 pids

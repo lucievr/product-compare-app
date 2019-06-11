@@ -11,11 +11,20 @@ const ProductPage = () => (
         allWomen {
           edges {
             node {
+              id
               name
               brand
               type
               price
-              src 
+              localImage {
+                id
+                childImageSharp {
+                  fluid(maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              imageURL
             }
           }
         }
@@ -38,7 +47,9 @@ const ProductPage = () => (
             <li>
               <strong>Price:</strong> {node.price}
             </li>
-            <img src={node.src} alt="image"></img>
+            <div style={{ width: `calc(220px + 10vw)`, margin: `0 auto` }}>
+              <Img fluid={node.localImage.childImageSharp.fluid} />
+            </div>
           </ul>
         ))}
         <Link to="/">Go back to the homepage</Link>

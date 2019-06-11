@@ -21,12 +21,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data/`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-json`,
       options: {
         typeName: `Json`, // a fixed string
@@ -46,7 +40,7 @@ module.exports = {
               brand: doc.brand,
               type: doc.type,
               price: doc.price,
-              src: doc.src,
+              imageURL: doc.imageURL,
             }),
           },
           // {
@@ -60,6 +54,13 @@ module.exports = {
           //   }),
           // },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'Women',
+        imagePath: 'imageURL',
       },
     },
     `gatsby-plugin-emotion`,
