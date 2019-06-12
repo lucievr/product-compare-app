@@ -18,15 +18,15 @@ const LadiesPage = () => (
               price
               buyURL
               color
+              imageURL
               localImage {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 500) {
+                  fluid(maxWidth: 700) {
                     ...GatsbyImageSharpFluid
                   }
                 }
-              }
-              imageURL
+              }  
             }
           }
         }
@@ -55,7 +55,7 @@ const LadiesPage = () => (
             <li>
               <a href={node.buyURL}>Buy here</a>
             </li>
-            <div style={{ width: `calc(220px + 10vw)`, margin: `0 auto` }}>
+            <div style={{ width: `calc(300px + 10vw)`, margin: `0 auto` }}>
               <Img fluid={node.localImage.childImageSharp.fluid} />
             </div>
           </ul>
