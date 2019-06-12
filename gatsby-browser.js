@@ -4,6 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
-
-require('typeface-black-ops-one');
+require("materialize-css/dist/css/materialize.css")
+require("typeface-black-ops-one");
