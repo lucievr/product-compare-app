@@ -1,14 +1,12 @@
 
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
-
 import SEO from "../components/seo"
-// import { StaticQuery, graphql } from "gatsby"
-// import Img from "gatsby-image"
+
 import { css, Global } from "@emotion/core"
 import "../components/bootstrap.min.css"
 import Button from 'react-bootstrap/Button'
-import Video from "../../public/static/video.mp4"
+import Video from "../images/video.mp4"
 
 const globalStyles = css`
   * {
