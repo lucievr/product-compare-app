@@ -28,9 +28,13 @@ const GlobalStyles = css`
     padding: 30px;
   }
 
-  h4 {
+  h4.ladies {
     color: #88ddd1;
     letter-spacing: 1px;
+  }
+
+  h4.gents {
+      color: #f27373;
   }
 
   h5 {
@@ -58,20 +62,49 @@ const GlobalStyles = css`
     max-width: 98vw;
   }
 
-  .card--ladies {
-    max-width: 500px;
-    background-color: rgb(243, 129, 129);
-    margin: calc(10px + 3vw);
-    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3), 0 10px 25px 0 rgba(0, 0, 0, 0.3);
+  div.card--ladies {
+    width: calc(260px + 5vw);
+    max-width: 90vw;
+    background-color: rgb(243, 129, 129)!important;
+    margin: calc(20px + 3vw);
+    ${'' /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3), 0 10px 25px 0 rgba(0, 0, 0, 0.3); */}
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.5s;
+    will-change: transform;
+  }
+
+  .card--ladies:hover {
+    box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
   }
 
   .card--ladies a {
         color: #88ddd1;
+        margin: 10px;
+  }
+
+  div.card--gents {
+    width: calc(260px + 5vw);
+    max-width: 90vw;
+    background-color: rgb(0, 129, 138)!important;
+    margin: calc(20px + 3vw);
+    ${'' /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3), 0 10px 25px 0 rgba(0, 0, 0, 0.3); */}
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.5s;
+    will-change: transform;
+  }
+
+  .card--gents:hover {
+    box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .card--gents a {
+        color: #f27373;
+        margin: 10px;
   }
 
   .div--product {
       text-align: left;
-      width: 50%;
+      width: 60%;
       margin: 10px auto;
   }
 
@@ -91,13 +124,19 @@ const GlobalStyles = css`
       border: 5px solid rgb(219, 237, 243);
   }
 
-  hr {
+  hr.ladies {
     border: 0;
     height: 5px;
     background: rgb(243, 129, 129);
     background-image: linear-gradient(to right, rgb(243, 129, 129), #333, rgb(243, 129, 129));
   }
 
+  hr.gents {
+    border: 0;
+    height: 5px;
+    background: rgb(0, 129, 138);
+    background-image: linear-gradient(to right, rgb(0, 129, 138), #333, rgb(0, 129, 138));
+  }
 
 
   footer {
