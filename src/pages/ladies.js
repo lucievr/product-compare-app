@@ -49,7 +49,7 @@ const LadiesPage = () => {
         <>
           <SEO title="Women Shoes" />
           <Global styles={GlobalStyles} />
-          <Autocomplete placeholder="Search here" />
+          <Autocomplete data={{Lucie: null}} placeholder="Search here" />
          <div className ="div--card">
           {allWomen.edges.map(({ node }) => (
             <animated.div className="card--ladies"

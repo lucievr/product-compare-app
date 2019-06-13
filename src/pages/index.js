@@ -2,10 +2,9 @@ import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 
-import "materialize-css/dist/js/materialize.js"
 import { css, Global } from "@emotion/core"
 import GlobalStyles from "../components/GlobalStyles"
-import { Button } from "react-materialize"
+import Button from '@material-ui/core/Button'
 
 import Video from "../images/video.mp4"
 
