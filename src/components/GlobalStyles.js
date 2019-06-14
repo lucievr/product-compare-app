@@ -28,17 +28,17 @@ const GlobalStyles = css`
     padding: 30px;
   }
 
-  h4.ladies {
+  h2 {
+    color: rgb(219, 237, 243);
+  }
+
+  h2.ladies {
     color: #88ddd1;
     letter-spacing: 1px;
   }
 
-  h4.gents {
+  h2.gents {
       color: #f27373;
-  }
-
-  h5 {
-    color: rgb(219, 237, 243);
   }
 
   .div--video {
@@ -73,13 +73,14 @@ const GlobalStyles = css`
     will-change: transform;
   }
 
-  .card--ladies:hover {
+  div.card--ladies:hover {
     box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
   }
 
-  .card--ladies a {
+  div.card--ladies a {
         color: #88ddd1;
         margin: 10px;
+        text-decoration: none;
   }
 
   div.card--gents {
@@ -87,24 +88,24 @@ const GlobalStyles = css`
     max-width: 90vw;
     background-color: rgb(0, 129, 138)!important;
     margin: calc(20px + 3vw);
-    ${'' /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3), 0 10px 25px 0 rgba(0, 0, 0, 0.3); */}
     box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.5s;
     will-change: transform;
   }
 
-  .card--gents:hover {
+  div.card--gents:hover {
     box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
   }
 
-  .card--gents a {
+  div.card--gents a {
         color: #f27373;
         margin: 10px;
+        text-decoration: none;
   }
 
   .div--product {
       text-align: left;
-      width: 60%;
+      width: 70%;
       margin: 10px auto;
   }
 
@@ -128,16 +129,15 @@ const GlobalStyles = css`
     border: 0;
     height: 5px;
     background: rgb(243, 129, 129);
-    background-image: linear-gradient(to right, rgb(243, 129, 129), #333, rgb(243, 129, 129));
+    background-image: linear-gradient(to right, rgb(243, 129, 129), #808080, rgb(243, 129, 129));
   }
 
   hr.gents {
     border: 0;
     height: 5px;
     background: rgb(0, 129, 138);
-    background-image: linear-gradient(to right, rgb(0, 129, 138), #333, rgb(0, 129, 138));
+    background-image: linear-gradient(to right, rgb(0, 129, 138), #808080, rgb(0, 129, 138));
   }
-
 
   footer {
     color: rgb(0, 129, 138);

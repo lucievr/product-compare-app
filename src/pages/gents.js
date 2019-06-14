@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import { Autocomplete } from "react-materialize"
 import { Global } from "@emotion/core"
 import { useSpring, animated } from 'react-spring'
 import GlobalStyles from "../components/GlobalStyles"
@@ -49,7 +48,7 @@ const GentsPage = () => {
         <>
           <SEO title="Men Shoes" />
           <Global styles={GlobalStyles} />
-          <Autocomplete placeholder="Search here" />
+         
          <div className ="div--card">
           {allMen.edges.map(({ node }) => (
             <animated.div className="card--gents"
@@ -57,7 +56,7 @@ const GentsPage = () => {
           onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
           onMouseLeave={() => set({ xys: [0, 0, 1] })}
           style={{ transform: props.xys.interpolate(trans) }}>
-            <h4 className="gents">{node.brand} {node.name}</h4>
+            <h2 className="gents">{node.brand} {node.name}</h2>
             <ul key={node.id} className="div--product">
               <li>
                 <span className="product--desc">Brand:</span> {node.brand}
