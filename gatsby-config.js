@@ -74,7 +74,8 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-image`,
+    `gatsby-image`,,
+    `gatsby-plugin-netlify-functions`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
