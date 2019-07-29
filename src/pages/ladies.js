@@ -76,12 +76,12 @@ const LadiesPage = () => {
                   <h3 class="reviews">Reviews</h3>
 
                   <form
-                    name={node.name}
+                    name={`product-${node.id}`}
                     method="POST"
                     data-netlify-honeypot="bot-field"
                     data-netlify="true"
                   >
-                    <input type="hidden" name="form-name" value={node.name} />
+                    <input type="hidden" name="form-name" value={`product-${node.id}`} />
                     <p>
                       <label>
                         Name: <input type="text" name="name" />
