@@ -5,22 +5,9 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import { Global } from "@emotion/core"
-import { useSpring, animated } from "react-spring"
 import GlobalStyles from "../components/GlobalStyles"
 
-const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 40,
-  (x - window.innerWidth / 2) / 40,
-  1.06,
-]
-const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-
 const LadiesPage = () => {
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 1, tension: 50, friction: 100 },
-  }))
   return (
     <StaticQuery
       query={graphql`
@@ -57,14 +44,7 @@ const LadiesPage = () => {
 
             <div className="div--card">
               {allWomen.edges.map(({ node }) => (
-                <animated.div
-                  className="card--ladies"
-                  onMouseMove={({ clientX: x, clientY: y }) =>
-                    set({ xys: calc(x, y) })
-                  }
-                  onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                  style={{ transform: props.xys.interpolate(trans) }}
-                >
+                <div className="card--ladies">
                   <h2 className="ladies">
                     {node.brand} {node.name}
                   </h2>
@@ -89,12 +69,40 @@ const LadiesPage = () => {
                       className="image--product"
                     />
                   </div>
-                  Here is the standard card with an image thumbnail.
                   <hr className="ladies" />
                   <a href={node.buyURL} className="ladies">
                     BUY HERE
                   </a>
-                </animated.div>
+                  <h3 class="reviews">Reviews</h3>
+
+                  <form
+                    name={node.name}
+                    method="POST"
+                    data-netlify-honeypot="bot-field"
+                    data-netlify="true"
+                  >
+                    <input type="hidden" name="form-name" value={node.name} />
+                    <p>
+                      <label>
+                        Name: <input type="text" name="name" />
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        Email: <input type="email" name="email" />
+                      </label>
+                    </p>
+
+                    <p>
+                      <label>
+                        Review message: <textarea name="message" />
+                      </label>
+                    </p>
+                    <p>
+                      <button type="submit">Send</button>
+                    </p>
+                  </form>
+                </div>
               ))}
             </div>
             <Link to="/">Go back to the homepage</Link>

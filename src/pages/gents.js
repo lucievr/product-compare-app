@@ -5,15 +5,9 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import { Global } from "@emotion/core"
-import { useSpring, animated } from 'react-spring'
 import GlobalStyles from "../components/GlobalStyles"
 
-
-const calc = (x, y) => [-(y - window.innerHeight / 2) / 40, (x - window.innerWidth / 2) / 40, 1.06]
-const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-
 const GentsPage = () => { 
-  const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 1, tension: 50, friction: 100 } }));
   return (
     <StaticQuery
       query={graphql`
@@ -51,11 +45,8 @@ const GentsPage = () => {
          
          <div className ="div--card">
           {allMen.edges.map(({ node }) => (
-            <animated.div className="card--gents"
-           
-          onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-          onMouseLeave={() => set({ xys: [0, 0, 1] })}
-          style={{ transform: props.xys.interpolate(trans) }}>
+            <div className="card--gents"
+           >
             <h2 className="gents">{node.brand} {node.name}</h2>
             <ul key={node.id} className="div--product">
               <li>
@@ -74,10 +65,9 @@ const GentsPage = () => {
             <div>
                 <Img fluid={node.localImage.childImageSharp.fluid} className="image--product" />
               </div>
-            Here is the standard card with an image thumbnail.
             <hr className="gents" />
             <a href={node.buyURL} className="gents">BUY HERE</a>
-          </animated.div>
+          </div>
           ))}
           </div>
           <Link to="/">Go back to the homepage</Link>
