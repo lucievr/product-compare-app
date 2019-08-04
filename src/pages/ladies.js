@@ -37,6 +37,7 @@ export default class LadiesPage extends React.Component {
             <div className="div--card">
               {this.state.products.map((o, index) => (
                 <div key={index} className="card--ladies">
+                <Link to={o.node.loc}>
                   <h2 className="ladies">
                     {o.node.brand} {o.node.name}
                   </h2>
@@ -65,6 +66,7 @@ export default class LadiesPage extends React.Component {
                   <a href={o.node.buyURL} className="ladies">
                     BUY HERE
                   </a>
+                  </Link>
                 </div>
               ))}
             </div>
