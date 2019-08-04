@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import { StaticQuery, graphql } from "gatsby"
@@ -8,6 +9,15 @@ import { Global } from "@emotion/core"
 import GlobalStyles from "../components/GlobalStyles"
 
 const LadiesPage = () => {
+  const [data, setData] = useState({ reviews: [] })
+
+  useEffect(async () => {
+    const result = await axios(
+      `https://${process.env.site_id}/fetchreviews`
+    )
+    setData(result.data)
+  }, [])
+
   return (
     <StaticQuery
       query={graphql`
@@ -44,11 +54,11 @@ const LadiesPage = () => {
 
             <div className="div--card">
               {allWomen.edges.map(({ node }) => (
-                <div className="card--ladies">
+                <div key={node.id} className="card--ladies">
                   <h2 className="ladies">
                     {node.brand} {node.name}
                   </h2>
-                  <ul key={node.id} className="div--product">
+                  <ul className="div--product">
                     <li>
                       <span className="product--desc">Brand:</span> {node.brand}
                     </li>
@@ -73,7 +83,14 @@ const LadiesPage = () => {
                   <a href={node.buyURL} className="ladies">
                     BUY HERE
                   </a>
-                  <h3 class="reviews">Reviews</h3>
+
+                  {data.reviews.map(o => (
+                    <p key={o.number}>
+                      {o.name}: {o.data.message}
+                    </p>
+                  ))}
+
+                  <h3 className="reviews">Reviews</h3>
 
                   <form
                     name={`product-${node.id}`}
@@ -81,7 +98,11 @@ const LadiesPage = () => {
                     data-netlify-honeypot="bot-field"
                     data-netlify="true"
                   >
-                    <input type="hidden" name="form-name" value={`product-${node.id}`} />
+                    <input
+                      type="hidden"
+                      name="form-name"
+                      value={`product-${node.id}`}
+                    />
                     <p>
                       <label>
                         Name: <input type="text" name="name" />

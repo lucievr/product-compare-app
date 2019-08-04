@@ -2,7 +2,6 @@ const https = require('https');
 
 exports.handler = function(event, context, callback) {
     var id = event.queryStringParameters.id;
-    var token = process.env.netlify_access_token;
 
     if(id == undefined){
         callback('A product id must be specified.', {
@@ -19,8 +18,7 @@ exports.handler = function(event, context, callback) {
         }
     };
     
-    var queryToken = `access_token=${token}`;
-    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/${process.env.site_id}/forms?${queryToken}`});
+    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/${process.env.site_id}/forms`});
 
     var req = https.request(opts1, function(res) {
 
@@ -35,7 +33,7 @@ exports.handler = function(event, context, callback) {
             body = JSON.parse(body);
 
             var form = body.filter(x => x.name == `product-${id}`)[0];
-            var opts2 = Object.assign({}, options, { path: `/api/v1/forms/${form.id}/submissions?${queryToken}`});
+            var opts2 = Object.assign({}, options, { path: `/api/v1/forms/${form.id}/submissions`});
 
             var req2 = https.request(opts2, function(res2) {
                 res2.setEncoding('utf8');         
