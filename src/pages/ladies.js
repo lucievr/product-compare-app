@@ -9,14 +9,30 @@ import { Global } from "@emotion/core"
 import GlobalStyles from "../components/GlobalStyles"
 
 const LadiesPage = () => {
-  const [data, setData] = useState({ reviews: [] })
+  const [data, setData] = useState({ reviews: [] });
+  const [url, setUrl] = useState(
+    `https://${process.env.site_id}/fetchreviews`,
+  );
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  useEffect(async () => {
-    const result = await axios(
-      `https://${process.env.site_id}/fetchreviews`
-    )
-    setData(result.data)
-  }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [url]);
+
 
   return (
     <StaticQuery
@@ -83,12 +99,19 @@ const LadiesPage = () => {
                   <a href={node.buyURL} className="ladies">
                     BUY HERE
                   </a>
+                  {isError && <div>Something went wrong ...</div>}
 
+                  {isLoading ? (
+                    <div>Loading ...</div>
+                    ) : (
+                      <ul>
                   {data.reviews.map(o => (
                     <p key={o.number}>
                       {o.name}: {o.data.message}
                     </p>
                   ))}
+                  </ul>
+                  )}
 
                   <h3 className="reviews">Reviews</h3>
 
