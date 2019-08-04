@@ -34,6 +34,7 @@ module.exports = {
               buyURL: doc.buyURL,
               color: doc.color,
               imageURL: doc.imageURL,
+              loc: doc.loc,
               name: doc.name,
               price: doc.price,
               type: doc.type,
