@@ -4,10 +4,7 @@ const firebaseConfig = {
     ? require('./firebase-key.json')
     : {
         private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-        private_key: Buffer.from(
-          process.env.FIREBASE_PRIVATE_KEY,
-          'base64',
-        ).toString(),
+        private_key: process.env.FIREBASE_PRIVATE_KEY,
         client_id: process.env.FIREBASE_CLIENT_ID,
       }),
   ...firebase,
