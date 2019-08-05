@@ -32,7 +32,6 @@ exports.handler = function(event, context, callback) {
             body += data;
         });
 
-        console.warn(xhr.responseText)
         console.log(body)
 
         res.on("end", function () {
