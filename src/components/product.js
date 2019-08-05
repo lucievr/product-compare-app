@@ -3,6 +3,7 @@ import axios from "axios"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import StarRating from './StarRating'
 
 import { Global } from "@emotion/core"
 import GlobalStyles from "../components/GlobalStyles"
@@ -100,18 +101,20 @@ const Product = props => {
             />
             <p>
               <label>
-                Name: <input type="text" name="name" />
+                Name: <br />
+                <input type="text" name="name" />
               </label>
             </p>
             <p>
               <label>
-                Email: <input type="email" name="email" />
+                Your Rating: <StarRating name="rating" stars={4} />
               </label>
             </p>
 
             <p>
               <label>
-                Review message: <textarea name="message" />
+                Review message: <br />
+                <textarea name="message" />
               </label>
             </p>
             <p>

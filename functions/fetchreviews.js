@@ -15,8 +15,9 @@ exports.handler = function(event, context, callback) {
         hostname: 'api.netlify.com',
         port: 443,
         method: 'GET',
-        headers: {        
-            'Content-Type': 'application/json'
+        headers: {
+            "Access-Control-Allow-Origin" : "*",        
+            "Content-Type": "application/json"
         }
     };
     
@@ -24,21 +25,24 @@ exports.handler = function(event, context, callback) {
 
     var req = https.request(opts1, function(res) {
 
-        res.setEncoding('utf8');
+        res.setEncoding("utf8");
         var body = "";
 
-        res.on('data', data => {
+        res.on("data", data => {
             body += data;
         });
 
-        res.on('end', function () {
+        console.warn(xhr.responseText)
+        console.log(body)
+
+        res.on("end", function () {
             body = JSON.parse(body);
 
             var form = body.filter(x => x.name == `product-${id}`)[0];
             var opts2 = Object.assign({}, options, { path: `/api/v1/forms/${form.id}/submissions?access_token=${AUTH}`});
 
             var req2 = https.request(opts2, function(res2) {
-                res2.setEncoding('utf8');         
+                res2.setEncoding("utf8");         
                 var body2 = "";
 
                 res2.on("data", (data) => {
@@ -50,7 +54,7 @@ exports.handler = function(event, context, callback) {
                         statusCode: 200,
                         headers: {
                             "Access-Control-Allow-Origin" : "*",
-                            'Content-Type': 'application/json'
+                            "Content-Type": "application/json"
                         },
                         body: body2
                     })
