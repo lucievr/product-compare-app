@@ -4,7 +4,7 @@ const firebaseConfig = {
     ? require('./firebase-key.json')
     : {
         private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-        private_key: process.env.FIREBASE_PRIVATE_KEY,
+        private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
         client_id: process.env.FIREBASE_CLIENT_ID,
       }),
   ...firebase,
