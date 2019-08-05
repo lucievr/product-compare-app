@@ -1,3 +1,18 @@
+const { firebase } = require('./config');
+const firebaseConfig = {
+  ...(process.env.NODE_ENV === 'development'
+    ? require('./firebase-key.json')
+    : {
+        private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+        private_key: Buffer.from(
+          process.env.FIREBASE_PRIVATE_KEY,
+          'base64',
+        ).toString(),
+        client_id: process.env.FIREBASE_CLIENT_ID,
+      }),
+  ...firebase,
+};
+
 module.exports = {
   siteMetadata: {
     title: `Shoolix`,
@@ -23,7 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-firestore',
       options: {
-        credential: require("./firebase-key.json"),
+        credential: firebaseConfig,
         databaseURL: "https://shoolix.firebaseio.com",
         types: [
           {
